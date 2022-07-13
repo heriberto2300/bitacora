@@ -1,0 +1,11 @@
+{
+  "name": "bitacora",
+  "version": "1.0.0",
+  "description": "\"Primera pagina web aprendiendo node y express\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "beto",
+  "license": "ISC"
+}
