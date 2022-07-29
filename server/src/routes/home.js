@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const JSON = require('express').json();
-const databaseManager = require('../database');
+const databaseManager = require('../lib/dataBase');
 
 router.use(JSON);
 
@@ -10,20 +10,18 @@ router.get('/home', (req, res) => {
 
 router.post('/home', (req, res) => {
     const id = req.body.id;
-    const apellido = req.body.apellido;
-    const nombre = req.body.nombre;
-    const direccion = req.body.direccion;
-    const ciudad = req.body.ciudad;
+    const name = req.body.name;
+    const password = req.body.password;
 
-    if(id === undefined || apellido === undefined || nombre === undefined || direccion === undefined || ciudad === undefined) {
+    if(id === undefined || name === undefined || password === undefined) {
         console.error("ERROR: SOME UNDEFINED ELEMENT");
         res.send("ERROR: SOME UNDEFINED ELEMENT");
         return;
     }
 
-    console.log(id + ", " + apellido + ", " + nombre + ", " + direccion + ", " + ciudad);
+    console.log(id + ", " + name + ", " + password);
     
-    databaseManager.insert(id, apellido, nombre, direccion, ciudad);
+    databaseManager.insertUser(id, name, password);
 
     //databaseManager.insert(5, 'Flores', 'Alicia', 'Villa', 'Puebla');
 
