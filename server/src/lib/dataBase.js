@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+require('dotenv').config();
 
 class DB {
     constructor() {
@@ -8,7 +9,7 @@ class DB {
     connect() {
         this.connection = mysql.createConnection({
             host: "localhost",
-            user: "admin",
+            user: process.env.DB_USER,
             password: "heri000430",
             database: "Bitacora",
         });
