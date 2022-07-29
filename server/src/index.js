@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+const cors = require('cors');
+
 const home = require('./routes/home');
 const login = require('./routes/login');
 const register = require('./routes/register');
@@ -9,6 +11,7 @@ const profile = require('./routes/profile');
 
 const test = require('./routes/testRoute');
 
+app.use(cors());
 app.use(home);
 app.use(login);
 app.use(register);

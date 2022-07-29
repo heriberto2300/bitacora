@@ -16,4 +16,8 @@ router.post("/register", (req, res) => {
         });
 });
 
+router.get('/register', (req, res) => {
+    res.send("Pantalla de bienvenida");
+}); 
+
 module.exports = router;
