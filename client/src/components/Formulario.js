@@ -9,7 +9,7 @@ function Formulario() {
   
   const agregar = (e) => {
     e.preventDefault();
-    const url = 'http://localhost:8000/register';
+    const url = 'http://192.168.100.11:8000/register';
     fetch(url, {
       method: 'POST',
       mode: 'cors',
@@ -18,7 +18,10 @@ function Formulario() {
       },
       body: JSON.stringify(input),
     }).then(response => response.json())
-      .then(data => console.log(data));    
+      .then(data => {
+        console.log(data);
+        alert(data.user + " Insertado correctamente");
+      });
   };
 
   const cambio = (e) => {
