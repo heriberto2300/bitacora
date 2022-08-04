@@ -62,6 +62,23 @@ router.post('/add', (req, res) => {
     res.send(req.body);
 });
 
+router.post('/testJSON', (req, res) => {
+    const data = [
+        {
+            name: 'lala',
+            token: '1',
+        },
+        {
+            name: 'lalo',
+            token: '2',
+        },
+        {
+            name: 'lelo',
+            token: '3',
+        }
+    ];
 
+    res.send(req.body.headings);
+});
 
 module.exports = router;
