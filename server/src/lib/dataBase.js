@@ -21,66 +21,76 @@ class DB {
     }
 
     query(query) {
-        this.connection.query(query, (err, result) => {
-            if(err) throw err;
-            console.log("QUERY: " + query + " SUCCESFULLY");
-        }); 
+        return new Promise((resolve, reject) => {
+            this.connection.query(query, (err, result) => {
+                if(err) throw err;
+                console.log(`QUERY: ${query} SUCCRESFULLY`);
+                resolve(result);
+            })
+        });
     }
 
-    insertUser(name, password) {
+    async insertUser(name, password) {
         const query = `INSERT INTO Usuarios (Nombre, Password) VALUES ('${name}', '${password}')`;
-        this.query(query);
+        const result = await this.query(query);
+        return result;
     }
 
-    insertTask(name, description, comments) {
+    async insertTask(name, description, comments) {
         const query = `INSERT INTO Tareas (Nombre, Descripcion, Status, Calificacion, Comentarios) 
             VALUES ('${name}', '${description}', 0, 0.0, '${comments}')`;
-        this.query(query);
+        const result = await this.query(query);
+        return result;
     }
 
-    insertCourse(name, schedule, description, days, teacher) {
+    async insertCourse(name, schedule, description, days, teacher) {
         const query = `INSERT INTO Materias (Nombre, Horario, Descripcion, Dias, Profesor)
             VALUES ('${name}', '${schedule}', '${description}', '${days}', '${teacher}')`;
-        this.query(query); 
+        const result = await this.query(query);
+        return result; 
     }
 
-    insertHeading(percentage) {
-        const query = `INSERT INTO Rubros (Porcentaje) VALUES ('${percentage}')`;
-        this.query(query);
+    async insertHeading(name, percentage) {
+        const query = `INSERT INTO Rubros (Porcentaje, Nombre) VALUES ('${percentage}', '${name}')`;
+        const result = await this.query(query);
+        return result;
+    }
+
+    async insertUserCourse(idUser, idCourse) {
+        const query = `INSERT INTO Usuario_Materia VALUES ('${idUser}', '${idCourse}')`;
+        const result = await this.query(query);
+        return result;
+    }
+
+    async insertCourseHeading(idCourse, idHeading) {
+        const query = `INSERT INTO Materia_Rubro VALUES ('${idCourse}', '${idHeading}')`;
+        const result = await this.query(query);
+        return result;
     }
     
-    delete(id, table, idName) {
+    async delete(id, table, idName) {
         const query = `DELETE FROM ${table} WHERE ID_${idName} = '${id}'`;
-        this.query(query);
+        const result = await this.query(query);
+        return result;
+    }
+    
+    async searchByName(name, table) {
+        const query = `SELECT * FROM ${table} WHERE Nombre='${name}'`;
+        const result = await this.query(query);
+        return result;
     }
 
+    async getTableData(table) {
+        const query = `SELECT * FROM ${table}`;
+        const result = await this.query(query);
+        return result;
+    }
+    
     disconnect() {
         this.connection.end();
     }
 
-    searchByName(name, table) {
-        const query = `SELECT * FROM ${table} WHERE Nombre='${name}'`;
-        
-        return new Promise((resolve, reject) => {
-            this.connection.query(query, (err, result) => {
-                if(err) throw(err);
 
-                resolve(result);
-            });    
-        });
-    }
-
-    getTableData(table) {
-        const query = `SELECT * FROM ${table}`;
-
-        return new Promise((resolve, reject) => {
-            this.connection.query(query, (err, result) => {
-                if(err) throw(err);
-
-                resolve(result);
-            });
-        });
-    }
 }
 
 databaseManager = new DB();
