@@ -68,6 +68,18 @@ class DB {
         return result;
     }
     
+    async insertUserTask(idUser, idTask) {
+        const query = `INSERT INTO Usuario_Tarea VALUES ('${idUser}', '${idTask}')`;
+        const result = await this.query(query);
+        return result;
+    }
+
+    async insertHeadingTask(idHeading, idTask) {
+        const query = `INSERT INTO Rubro_Tarea VALUES ('${idHeading}', '${idTask}')`;
+        const result = await this.query(query);
+        return result;
+    }
+
     async delete(id, table, idName) {
         const query = `DELETE FROM ${table} WHERE ID_${idName} = '${id}'`;
         const result = await this.query(query);
