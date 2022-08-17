@@ -1,0 +1,65 @@
+.loginPage {
+    background-color: #212121;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.formContainer {
+    max-width: 500px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.12),0 4px 4px rgba(0,0,0,0.12),0 8px 8px rgba(0,0,0,0.12),0 16px 16px rgba(0,0,0,0.12),0 32px 32px rgba(0,0,0,0.12);
+}
+
+.title {
+    padding: 10px 0px;
+    background-color: #0d47a1;
+    border-radius: 10px 10px 0px 0px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.title h1 {
+    font-family: 'Jetbrains Mono', Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    color: #fff;
+}
+
+.formDiv {
+    margin-top: 20px;
+}
+
+.formDiv form input {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    border: none;
+    font-size: large;
+    margin: 10px 0px;
+}
+
+.formDiv form label {
+    color: #fff;
+}
+
+.formDiv button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 0px 0px 10px 10px;
+    font-family: 'Jetbrains Mono';
+    font-weight: bolder;
+    font-size: larger;
+    background-color: #0277bd;
+    color: #fff;
+    cursor: pointer;
+    bottom: 0px;
+}
+
+.formDiv button:hover {
+    background-color: #03a9f4;
+}
