@@ -1,4 +1,5 @@
 import React from "react";
+import ShowDialog from "../components/ShowDialog";
 
 import '../stylesheets/login.css'
 
@@ -8,9 +9,11 @@ function Login() {
     password: '',
   });
 
+  const [userFlag, setFlag] = React.useState(true);
+
   const getCredentials = async (e) => {
     e.preventDefault();
-    const url = "http://localhost:8000/login";
+    const url = "http://192.168.100.11:8000/login";
     const params = {
       method: 'POST',
       mode: 'cors',
@@ -22,9 +25,9 @@ function Login() {
 
     const response = await fetch(url, params);
 
-    const status = await response.json();
+    const flag = await response.json();
 
-    console.log(status);
+    setFlag(flag);
   }
 
   const handleChange = (e) => {
@@ -41,6 +44,7 @@ function Login() {
   
   return (
     <div className="loginPage">
+      <ShowDialog message="Usuario y/o Contraseña Incorrectos" flag={userFlag} type="error"/>
       <div className="formContainer">
         <div className="title">
           <h1>Acceso a Usuario</h1>
@@ -48,9 +52,9 @@ function Login() {
         <div className="formDiv">
           <form onSubmit={getCredentials}>
             <label htmlFor="name">Nombre de Usuario</label>
-            <input name="name" type="text" onChange={handleChange}/>
+            <input name="name" type="text" onChange={handleChange} required/>
             <label htmlFor="password">Contraseña</label>
-            <input name="password" type="password" onChange={handleChange}/>
+            <input name="password" type="password" onChange={handleChange} required/>
             <button type="submit">Enviar</button>
           </form>
         </div>
