@@ -1,0 +1,32 @@
+.showed {
+    position: fixed;
+    top: 50px;
+    width: 65%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    border: solid 3px;
+    border-radius: 10px;
+}
+
+.error {
+    background-color: #9b0000;
+    border-color: #d50000;
+}
+
+/*.success {
+    background-color: green;
+    border-color: green;
+}*/
+
+.showed h3 {
+    font-family: 'Cascadia code', Arial, Helvetica, sans-serif;
+    color: #fff;    
+}
+
+.noShowed {
+    display: none;
+}
