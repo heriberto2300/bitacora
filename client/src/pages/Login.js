@@ -25,9 +25,8 @@ function Login() {
 
     const response = await fetch(url, params);
 
-    const flag = await response.json();
-
-    setFlag(flag);
+    setFlag(await response.json());
+    
   }
 
   const handleChange = (e) => {

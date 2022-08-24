@@ -5,6 +5,7 @@ import {
 
 import './App.css';
 import Root from './pages/Root';
+import Home from './pages/Home';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 
@@ -13,6 +14,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Root/>}/>
+        <Route path='/home' element={<Home/>}></Route>
         <Route path='/login' element={<Login/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
