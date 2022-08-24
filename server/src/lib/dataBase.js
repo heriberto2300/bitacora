@@ -24,7 +24,6 @@ class DB {
         return new Promise((resolve, reject) => {
             this.connection.query(query, (err, result) => {
                 if(err) throw err;
-                console.log(`QUERY: ${query} SUCCRESFULLY`);
                 resolve(result);
             })
         });
@@ -92,8 +91,8 @@ class DB {
         return result;
     }
 
-    async getTableData(table) {
-        const query = `SELECT * FROM ${table}`;
+    async getDataById(id, table) {
+        const query = `SELECT * FROM ${table} WHERE ID_='${id}'`;
         const result = await this.query(query);
         return result;
     }
@@ -101,8 +100,6 @@ class DB {
     disconnect() {
         this.connection.end();
     }
-
-
 }
 
 databaseManager = new DB();
