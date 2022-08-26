@@ -1,7 +1,8 @@
 import React from "react";
 import ShowDialog from "../components/ShowDialog";
 
-import '../stylesheets/login.css'
+import '../stylesheets/login.css';
+
 
 function Login() {
   const [data, setData] = React.useState({
@@ -11,7 +12,7 @@ function Login() {
 
   const [userFlag, setFlag] = React.useState(true);
 
-  const getCredentials = async (e) => {
+  const fetchCredentials = async (e) => {
     e.preventDefault();
     const url = "http://192.168.100.11:8000/login";
     const params = {
@@ -49,7 +50,7 @@ function Login() {
           <h1>Acceso a Usuario</h1>
         </div>
         <div className="formDiv">
-          <form onSubmit={getCredentials}>
+          <form onSubmit={fetchCredentials}>
             <label htmlFor="name">Nombre de Usuario</label>
             <input name="name" type="text" onChange={handleChange} required/>
             <label htmlFor="password">Contraseña</label>
