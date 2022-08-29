@@ -2,7 +2,7 @@ import React from "react";
 import ShowDialog from "../components/ShowDialog";
 
 import '../stylesheets/login.css';
-
+import '../stylesheets/page.css';
 
 function Login() {
   const [data, setData] = React.useState({
@@ -43,7 +43,7 @@ function Login() {
   }
   
   return (
-    <div className="loginPage">
+    <div className="page loginPage">
       <ShowDialog message="Usuario y/o Contraseña Incorrectos" flag={userFlag} type="error"/>
       <div className="formContainer">
         <div className="title">
