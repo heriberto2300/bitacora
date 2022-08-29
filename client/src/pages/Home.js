@@ -1,12 +1,13 @@
 import React from "react";
+import NavBar from "../components/NavBar";
 import Task from "../components/Task";
 import '../stylesheets/home.css';
+import '../stylesheets/page.css'
 
 function Home() {
   const [tasksList, setTasks] = React.useState([]);
 
-  const fetchTasks = async (e) => {
-    e.preventDefault();
+  const fetchTasks = async () => {
     const data = {user: 'test',};
     const url = "http://192.168.100.11:8000/home"; 
     const params = {
@@ -24,8 +25,13 @@ function Home() {
     setTasks(tasks);
   };
 
+  React.useEffect(() => {
+    fetchTasks();
+  }, []); 
+
   return(
-    <div className="homePage">
+    <div className="page homePage">
+      <NavBar/>
       <div className="taskList">
         {tasksList.map(task => <Task 
           key={task.ID_Tarea} 
@@ -34,9 +40,6 @@ function Home() {
           />)
         }
       </div>
-      <form onSubmit={fetchTasks}>
-        <button type="submit">Fetch</button>
-      </form>
     </div>      
   );
 }
