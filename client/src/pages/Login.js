@@ -1,5 +1,6 @@
 import React from "react";
 import ShowDialog from "../components/ShowDialog";
+import ModalFactory from "../components/ModalFactory";
 
 import '../stylesheets/login.css';
 import '../stylesheets/page.css';
@@ -58,6 +59,8 @@ function Login() {
             <button type="submit">Enviar</button>
           </form>
         </div>
+        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#test">Clickea</button>
+        <ModalFactory id="test" type="register"/>
       </div>
     </div>
   );
