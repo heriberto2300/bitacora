@@ -27,7 +27,7 @@ function Home() {
 
   React.useEffect(() => {
     fetchTasks();
-  }, []); 
+  }, []);
 
   return(
     <div className="page homePage">
@@ -36,12 +36,17 @@ function Home() {
         {tasksList.map(task => <Task 
           key={task.ID_Tarea} 
           name={task.Nombre}
-          des={task.Descripcion}
+          status= {task.Status}
+          date= "25-08-2022"
           />)
-        }
+        }        
       </div>
     </div>      
   );
 }
 
 export default Home;
+
+/*
+
+*/

@@ -1,12 +1,18 @@
 .homePage {
-
+    width: 100%;
 }
 
 .taskList {
+    position: absolute;
+    top: 100px;
     width: 100%;
-    height: 100px;
+    min-height: 100px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+}
+
+.noShowed {
+    display: none;
 }
