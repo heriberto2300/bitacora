@@ -13,7 +13,7 @@ function Task({ name, status, date }) {
         <div className="taskDate"><p>{`Fecha de Entrega: ${date}`}</p></div>
       </div>
       <div className="icons">
-        <p><Check size="70px" color="#fff"/></p>
+        <p>{status === 1? <Check size="70px" color="#fff"/> : <Pending size="70px" color="#fff"/>}</p>
         <p className="displayButton"><DownArrow size="20px" color="#fff"/></p>
       </div> 
     </div>
