@@ -2,7 +2,7 @@
     position: fixed;
     top: 50px;
     width: 65%;
-    height: 60px;
+    min-height: 60px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
