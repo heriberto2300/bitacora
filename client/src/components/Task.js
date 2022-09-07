@@ -1,7 +1,7 @@
 import React from "react";
-import { BsFillCheckCircleFill as Check} from "react-icons/bs";
-import { BsCaretDownFill as DownArrow } from "react-icons/bs";
-import { BsClockFill as Pending } from "react-icons/bs";
+import { VscTasklist as Check} from "react-icons/vsc";
+import { VscTriangleDown as DownArrow } from "react-icons/vsc";
+import { VscHistory as Pending } from "react-icons/vsc";
 import '../stylesheets/Task.css';
 
 function Task({id, name, status, date, description }) {

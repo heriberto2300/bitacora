@@ -6,6 +6,7 @@ import '../stylesheets/Page.css'
 
 function Home() {
   const [tasksList, setTasks] = React.useState([]);
+  const [per, setPer] = React.useState(0.0);
 
   const fetchTasks = async () => {
     const data = {user: 'test',};
@@ -20,9 +21,10 @@ function Home() {
     };
 
     const res = await fetch(url, params);
-    const { tasks } =  await res.json();
+    const { tasks, percentage } =  await res.json();
     console.log(tasks);
     setTasks(tasks);
+    setPer(percentage.toFixed(1));
   };
 
   React.useEffect(() => {
@@ -32,6 +34,12 @@ function Home() {
   return(
     <div className="page home-page">
       <NavBar/>
+      <div className="percentage-container">
+        <h2>Bienvenido <span>Test</span>, tu porcentaje de tareas completadas es:</h2>
+        <div className="number-percentage">
+          <h2>{`${per}%`}</h2>
+        </div>
+      </div>
       <div className="task-list">
         {tasksList.map(task => <Task 
           key={task.ID_Tarea} 
