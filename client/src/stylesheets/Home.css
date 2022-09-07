@@ -1,8 +1,8 @@
-.homePage {
+.home-page {
     width: 100%;
 }
 
-.taskList {
+.task-list {
     position: absolute;
     top: 100px;
     width: 100%;
@@ -13,6 +13,6 @@
     justify-content: center;
 }
 
-.noShowed {
+.no-showed {
     display: none;
 }

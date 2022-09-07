@@ -1,4 +1,4 @@
-.taskContainer {
+.task-container {
     width: 80%;
     min-height: 65px;
     display: grid;
@@ -6,7 +6,7 @@
     background: rgba(93,105,107,1);
     border-radius: 10px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.12),0 2px 2px rgba(0,0,0,0.12),0 4px 4px rgba(0,0,0,0.12),0 8px 8px rgba(0,0,0,0.12),0 16px 16px rgba(0,0,0,0.12);
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .info {
@@ -15,17 +15,17 @@
     padding: 8px 0 8px 5px;    
 }
 
-.info .taskTitle {
+.info .task-title {
     width: 100%;
     margin-bottom: 10px;
 }
 
-.info .taskTitle h2{
+.info .task-title h2{
     color: #eee;
     font-size: 35px;
 }
 
-.info .taskStatus, .info .taskDate {
+.info .task-status, .info .task-date {
     width: 100%;
     padding: 0 5px;
 }
@@ -38,6 +38,10 @@
     height: 100%;
 }
 
-.icons .displayButton {
+.icons .display-button {
     text-align: end;
+}
+
+.task-details-container {
+    width: 80%;
 }

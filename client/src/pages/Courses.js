@@ -1,11 +1,11 @@
 import React from "react";
 
 import NavBar from '../components/NavBar';
-import '../stylesheets/page.css';
+import '../stylesheets/Page.css';
 
 function Courses() {
     return(
-        <div className="page coursesPage">
+        <div className="page courses-page">
             <NavBar/>
         </div>
     );

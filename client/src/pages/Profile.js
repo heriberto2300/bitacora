@@ -1,11 +1,11 @@
 import React from "react";
 
 import NavBar from '../components/NavBar';
-import '../stylesheets/page.css';
+import '../stylesheets/Page.css';
 
 function Profile() {
     return(
-        <div className="page profilePage">
+        <div className="page profile-page">
             <NavBar/>
         </div>
     );

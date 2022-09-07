@@ -2,8 +2,8 @@ import React from "react";
 import ShowDialog from "../components/ShowDialog";
 import ModalFactory from "../components/ModalFactory";
 
-import '../stylesheets/login.css';
-import '../stylesheets/page.css';
+import '../stylesheets/Login.css';
+import '../stylesheets/Page.css';
 
 function Login() {
   const [data, setData] = React.useState({
@@ -44,24 +44,24 @@ function Login() {
   }
   
   return (
-    <div className="page loginPage">
+    <div className="page login-page">
       <ShowDialog message="Usuario y/o Contraseña Incorrectos" flag={userFlag} type="error"/>
-      <div className="formContainer">
+      <div className="form-container">
         <div className="title">
           <h1>Acceso a Usuario</h1>
         </div>
-        <div className="formDiv">
+        <div className="form-div">
           <form onSubmit={fetchCredentials}>
             <label htmlFor="name">Nombre de Usuario</label>
             <input name="name" type="text" onChange={handleChange} required/>
             <label htmlFor="password">Contraseña</label>
             <input name="password" type="password" onChange={handleChange} required/>
-            <button type="submit">Enviar</button>
+            <button type="submit">Acceder</button>
           </form>
         </div>
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#test">Clickea</button>
-        <ModalFactory id="test" type="register" title="Registro"/>
       </div>
+      <div className="text-white text-center div-register" data-bs-toggle="modal" data-bs-target="#test">No tienes una cuenta?. Registrate</div>
+      <ModalFactory id="test" type="register" title="Crea una Nueva Cuenta"/>
     </div>
   );
 
