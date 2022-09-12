@@ -45,3 +45,9 @@
 .no-showed {
     display: none;
 }
+
+.add-button {
+    position: sticky;
+    top: 100px;
+    cursor: pointer;
+}
