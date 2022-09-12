@@ -1,6 +1,7 @@
 import React from "react";
 
 import FormRegister from './FormRegister';
+import TaskRegister from "./TaskRegister";
 
 function ModalFactory( {id, type, title} ) {
   
@@ -8,11 +9,12 @@ function ModalFactory( {id, type, title} ) {
     switch(type) {
       case 'register':
         return <FormRegister/>
+      case 'addTask':
+        return <TaskRegister/>
       default:
         return <div>Perrito</div>
     }
   };
-
 
   return(
     <>
@@ -31,7 +33,6 @@ function ModalFactory( {id, type, title} ) {
       </div>
     </>
   );
-  
 }
 
 export default ModalFactory;

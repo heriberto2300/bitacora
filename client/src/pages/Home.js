@@ -1,10 +1,11 @@
-/*CHANCHITO FELIZ */
-
 import React from "react";
 import NavBar from "../components/NavBar";
 import Task from "../components/Task";
+import { BsFillPlusCircleFill as Add } from 'react-icons/bs';
 import '../stylesheets/Home.css';
 import '../stylesheets/Page.css'
+import ModalFactory from "../components/ModalFactory";
+import post from "../api/api";
 
 function Home() {
   const [tasksList, setTasks] = React.useState([]);
@@ -13,16 +14,7 @@ function Home() {
   const fetchTasks = async () => {
     const data = {user: 'test',};
     const url = "http://192.168.100.11:8000/home"; 
-    const params = {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data),
-    };
-
-    const res = await fetch(url, params);
+    const res = await post(url, data);
     const { tasks, percentage } =  await res.json();
     console.log(tasks);
     setTasks(tasks);
@@ -52,7 +44,9 @@ function Home() {
           description={task.Descripcion}
           />)
         }      
-      </div>
+      </div> 
+      <Add className="add-button" color="red" size="80px" data-bs-toggle="modal" data-bs-target="#add-task"/>
+      <ModalFactory id="add-task" type="addTask" title="Agregar Tarea"/>
     </div>      
   );
 } 

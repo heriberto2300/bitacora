@@ -1,4 +1,6 @@
 import React from "react";
+import handleAuthForm from '../lib/FormHandler';
+import post from '../api/api';
 
 function FormRegister() {
   const [data, setData] = React.useState({
@@ -6,34 +8,15 @@ function FormRegister() {
     password: '',
   });
 
-  const postUser = (e) => {
+  const postUser = async (e) => {
     e.preventDefault();
     const url = "http://192.168.100.11:8000/register";
-    const params = {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data),
-    }
-
-    fetch(url, params)
-      .then(res => res.json())
-      .then(data => console.log(data))
-      .catch(err => console.log(err));
+    await post(url, data);
   }
 
   const handleChange = (e) => {
     const { target } = e;
-    const { name, value } = target;
-
-    const newValues = {
-      ...data,
-      [name]: value,
-    };
-
-    setData(newValues);
+    handleAuthForm(target, data, setData);
   }
 
   return(
@@ -51,7 +34,7 @@ function FormRegister() {
             <input type="text" className="form-control" name="password" placeholder="Password" onChange={handleChange} required/>
           </div>
         </div>
-          <button type="onSubmit" className="btn btn-primary">Listo</button>
+        <button type="onSubmit" className="btn btn-primary">Listo</button>
       </form>
     </>
   );

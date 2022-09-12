@@ -4,6 +4,8 @@ import ModalFactory from "../components/ModalFactory";
 
 import '../stylesheets/Login.css';
 import '../stylesheets/Page.css';
+import post from "../api/api";
+import handleAuthForm from "../lib/FormHandler";
 
 function Login() {
   const [data, setData] = React.useState({
@@ -16,31 +18,13 @@ function Login() {
   const fetchCredentials = async (e) => {
     e.preventDefault();
     const url = "http://192.168.100.11:8000/login";
-    const params = {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data),
-    }
-
-    const response = await fetch(url, params);
-
+    const response = await post(url, data);
     setFlag(await response.json());
-    
   }
 
   const handleChange = (e) => {
     const { target } = e;
-    const { name, value } = target;
-
-    const newValues = {
-      ...data,
-      [name]: value,
-    };
-
-    setData(newValues);
+    handleAuthForm(target, data, setData);
   }
   
   return (
