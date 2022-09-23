@@ -1,33 +1,55 @@
 import React from "react";
+import handleAuthForm from "../lib/FormHandler";
+//import post from "../api/api";
 
 function TaskRegister() {
+
+  const [info , setInfo] = React.useState({
+    name: '',
+    course: '',
+    date: '',
+    des: '',
+  });
+
+  const addTask = (e) => {
+    e.preventDefault();
+    console.log(info);
+  }; 
+
+  const handleChange = (e) => {
+    const { target } = e;
+    handleAuthForm(target, info, setInfo);
+  };
+
   return(
     <>
-      <form>
+      <form onSubmit={addTask}>
         <div className="row mb-3">
           <label htmlFor="name" className="col-sm-2 col-form-label">Nombre</label>
           <div className="col-sm-10">
-            <input type="text" className="form-control" name="name" placeholder="Nombre" required/>
+            <input type="text" className="form-control" name="name" placeholder="Nombre" required onChange={handleChange}/>
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="input-course" className="col-sm-2 col-form-label">Materia</label>
+          <label htmlFor="course" className="col-sm-2 col-form-label">Materia</label>
           <div className="col-sm-10">
-            <select name="input-course" className="form-select">
+            <select name="course" className="form-select" onChange={handleChange}>
               <option selected>Elegir...</option>
-              <option>...</option>
+              <option>Espanol</option>
+              <option>Mates</option>
+              <option>Chanchito</option>
             </select>
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="input-date" className="col-sm-2 col-form-label">Fecha Limite</label>
+          <label htmlFor="date" className="col-sm-2 col-form-label">Fecha Limite</label>
           <div className="col-sm-10">
-            <input type="date" name="input-date"></input>   
+            <input type="date" name="date" onChange={handleChange}/>   
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="input-des" className="col-sm-2 col-form-label">Comentarios</label>
-          <textarea className="form-control" rows="3"></textarea>
+          <label htmlFor="des" className="col-sm-2 col-form-label">Descripcion</label>
+          <textarea className="form-control" name="des" rows="3" onChange={handleChange}></textarea>
         </div>
         <button type="onSubmit" className="btn btn-primary">Listo</button>
       </form>

@@ -40,7 +40,7 @@ function Home() {
           id={task.ID_Tarea}
           name={task.Nombre}
           status= {task.Status}
-          date= "25-08-2022"
+          date= {task.Fecha}
           description={task.Descripcion}
           />)
         }      
