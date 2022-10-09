@@ -26,28 +26,30 @@ function Home() {
   }, []);
 
   return(
-    <div className="page home-page">
-      <NavBar/>
-      <div className="percentage-container">
-        <h2>Bienvenido <span>Test</span>, tu porcentaje de tareas completadas es:</h2>
-        <div className="number-percentage">
-          <h2>{`${per}%`}</h2>
+    <>
+      <div className="page home-page">
+        <NavBar/>
+        <div className="percentage-container">
+          <h2>Bienvenido <span>Test</span>, tu porcentaje de tareas completadas es:</h2>
+          <div className="number-percentage">
+            <h2>{`${per}%`}</h2>
+          </div>
+          <Add className="add-button" color="rebeccapurple" size="80px" data-bs-toggle="modal" data-bs-target="#add-task"/>
         </div>
+        <div className="task-list">
+          {tasksList.map(task => <Task 
+            key={task.ID_Tarea} 
+            id={task.ID_Tarea}
+            name={task.Nombre}
+            status= {task.Status}
+            date= {task.Fecha}
+            description={task.Descripcion}
+            />)
+          }      
+        </div> 
+        <ModalFactory id="add-task" type="addTask" title="Agregar Tarea"/>
       </div>
-      <div className="task-list">
-        {tasksList.map(task => <Task 
-          key={task.ID_Tarea} 
-          id={task.ID_Tarea}
-          name={task.Nombre}
-          status= {task.Status}
-          date= {task.Fecha}
-          description={task.Descripcion}
-          />)
-        }      
-      </div> 
-      <Add className="add-button" color="red" size="80px" data-bs-toggle="modal" data-bs-target="#add-task"/>
-      <ModalFactory id="add-task" type="addTask" title="Agregar Tarea"/>
-    </div>      
+    </>
   );
 } 
 
