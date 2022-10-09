@@ -3,7 +3,7 @@
     min-height: 65px;
     display: grid;
     grid-template-columns: 70% 30%;
-    background: rgba(93,105,107,1);
+    background: #2f2f2f;
     border-radius: 10px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.12),0 2px 2px rgba(0,0,0,0.12),0 4px 4px rgba(0,0,0,0.12),0 8px 8px rgba(0,0,0,0.12),0 16px 16px rgba(0,0,0,0.12);
     margin-top: 20px;
@@ -12,7 +12,9 @@
 .info {
     display: flex;
     flex-wrap: wrap;
-    padding: 8px 0 8px 5px;    
+    padding: 8px 0 8px 5px;
+    color: #eee;
+
 }
 
 .info .task-title {
@@ -21,8 +23,13 @@
 }
 
 .info .task-title h2{
-    color: #eee;
     font-size: 35px;
+}
+
+
+.info .task-title .completed{
+    text-decoration: line-through;
+    opacity: 0.5;
 }
 
 .info .task-status, .info .task-date {
@@ -45,3 +52,7 @@
 .task-details-container {
     width: 80%;
 }
+
+
+
+
