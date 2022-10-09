@@ -10,8 +10,8 @@ function Task({id, name, status, date, description }) {
     <>
       <div className="task-container">
         <div className="info">
-          <div className="task-title"><h2>{name}</h2></div>
-          <div className="task-status"><p>{`Status: ${status}`}</p></div>
+          <div className="task-title"><h2 className={`${status ? 'completed' : ''}`}>{name}</h2></div>
+          <div className="task-status"><p>{`Status: ${status ? 'Entregada' : 'No Entregada'}`}</p></div>
           <div className="task-date"><p>{`Fecha de Entrega: ${date}`}</p></div>
         </div>
         <div className="icons">
@@ -22,7 +22,7 @@ function Task({id, name, status, date, description }) {
 
       <div className="collapse task-details-container" id={`identifier-${id}`}>
         <div className="card card-body">
-          lorem ipsum is a famous phrase that we love it
+          {description}
         </div>
       </div>
     </>
