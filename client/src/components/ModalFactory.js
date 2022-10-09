@@ -1,7 +1,7 @@
 import React from "react";
 
 import FormRegister from './FormRegister';
-import TaskRegister from "./TaskRegister";
+import TaskForm from "./TaskForm";
 
 function ModalFactory( {id, type, title} ) {
   
@@ -10,7 +10,7 @@ function ModalFactory( {id, type, title} ) {
       case 'register':
         return <FormRegister/>
       case 'addTask':
-        return <TaskRegister/>
+        return <TaskForm/>
       default:
         return <div>Perrito</div>
     }
