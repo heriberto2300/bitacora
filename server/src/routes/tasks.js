@@ -5,17 +5,16 @@ const databaseManager = require('../lib/dataBase');
 router.use(JSON);
 
 router.post('/tasks', async (req, res) => {
-    const idHeading = req.body.idHeading;
+    const idUser = '2';
     const name = req.body.name;
     const des = req.body.des;
     const comments = req.body.comm;
+    const date = req.body.date;
 
-    const { insertId } = await databaseManager.insertTask(name, des, comments);
+    console.log(req);
 
-    //variables de prueba
-    const idUser = 1;
+    const { insertId } = await databaseManager.insertTask(name, des, comments, date);
 
-    await databaseManager.insertHeadingTask(idHeading, insertId);
     await databaseManager.insertUserTask(idUser, insertId);
 
     res.send("ok");
