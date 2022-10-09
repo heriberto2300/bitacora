@@ -35,9 +35,9 @@ class DB {
         return result;
     }
 
-    async insertTask(name, description, comments) {
-        const query = `INSERT INTO Tareas (Nombre, Descripcion, Status, Calificacion, Comentarios) 
-            VALUES ('${name}', '${description}', 0, 0.0, '${comments}')`;
+    async insertTask(name, description, comments, date) {
+        const query = `INSERT INTO Tareas (Nombre, Descripcion, Status, Calificacion, Comentarios, Fecha) 
+            VALUES ('${name}', '${description}', 0, 0.0, '${comments}', '${date}')`;
         const result = await this.query(query);
         return result;
     }
