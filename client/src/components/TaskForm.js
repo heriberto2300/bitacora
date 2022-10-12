@@ -3,7 +3,6 @@ import handleAuthForm from "../lib/FormHandler";
 import { post, getCourses } from "../api/api";
 
 function TaskForm() {
-  const text = "Hola Mundo";
 
   const [info , setInfo] = React.useState({
     user: 'test',
