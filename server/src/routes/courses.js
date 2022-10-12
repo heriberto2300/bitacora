@@ -4,13 +4,13 @@ const databaseManager = require('../lib/dataBase');
 
 router.use(JSON);
 
-router.get('/courses', async (req, res) => {
+/*router.get('/courses', async (req, res) => {
    const courses = await databaseManager.getTableData("Materias");
 
    res.send(courses);
-});
+});*/
 
-router.post('/courses', async (req, res) => {
+/*router.post('/courses', async (req, res) => {
     const name = req.body.name;
     const hours = req.body.hours;
     const des = req.body.des;
@@ -45,8 +45,16 @@ router.post('/courses', async (req, res) => {
         await databaseManager.insertCourseHeading(insertId, idHeading);
     });
 
+
     res.send("ok");
     
+});*/
+
+router.get('/courses', async (req, res) => {
+    //const user = req.body.user;
+    const query = `SELECT * FROM Materias`;
+    const result = await databaseManager.query(query);
+    res.json({result: result});
 });
 
 module.exports = router;
