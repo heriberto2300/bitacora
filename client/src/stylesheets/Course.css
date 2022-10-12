@@ -8,6 +8,12 @@
     border-radius: 30px;
     color: #fff;
     margin: 10px 15px 15px 20px;
+    transition: all ease-in-out 350ms;
+}
+
+.course-container:hover {
+    scale: 1.065;
+    background: #749de9;
 }
 
 .course-details {
