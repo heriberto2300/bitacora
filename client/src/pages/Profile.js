@@ -6,7 +6,7 @@ import '../stylesheets/Page.css';
 function Profile() {
     return(
         <div className="page profile-page">
-            <NavBar/>
+            <NavBar title="Perfil"/>
         </div>
     );
 }
