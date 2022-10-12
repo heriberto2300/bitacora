@@ -4,9 +4,12 @@ import { BsHouseFill, BsGridFill, BsPersonFill } from 'react-icons/bs';
 
 import '../stylesheets/NavBar.css';
 
-function Header() {
+function Header({ title }) {
   return(
     <div className="nav-bar">
+      <div className="nav-title">
+        {title}
+      </div>
       <ul className="nav-links">
         <li>
           <BsHouseFill/>
