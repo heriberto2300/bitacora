@@ -1,3 +1,16 @@
-.homePage {
+.courses-page {
+    width: 100%;
+    --height-navbar: 90px;
+}
 
+.courses-container {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    top: var(--height-navbar);
+    width: 100%;
+    min-height: calc(100vh - var(--height-navbar));
+    background-color: #181818;
 }
