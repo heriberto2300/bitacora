@@ -57,4 +57,8 @@ router.get('/courses', async (req, res) => {
     res.json({result: result});
 });
 
+router.get('/courses/:courses', (req, res) => {
+    res.send(req.params); 
+});
+
 module.exports = router;
