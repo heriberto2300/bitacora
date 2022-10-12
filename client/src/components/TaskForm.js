@@ -1,6 +1,7 @@
 import React from "react";
 import handleAuthForm from "../lib/FormHandler";
-import post from "../api/api";
+import API from "../api/api";
+import Option from '../components/Option';
 
 function TaskForm() {
 
@@ -13,10 +14,12 @@ function TaskForm() {
     comm: 'Bruh comment',
   });
 
+  const [courses, setCourses] = React.useState([]);
+
   const addTask = async (e) => {
     e.preventDefault();
     const url = "http://192.168.100.11:8000/tasks";
-    const res = await post(url, info);
+    const res = await API.post(url, info);
     console.log(res);
   }; 
 
@@ -24,6 +27,17 @@ function TaskForm() {
     const { target } = e;
     handleAuthForm(target, info, setInfo);
   };
+
+  const fetchCourses = async () => {
+    const res = await API.getCourses();
+    const { result } = res;
+    console.log(result);
+    setCourses(result);
+  };
+
+  React.useEffect(() => {
+    fetchCourses();
+  }, []);
 
   return(
     <>
@@ -38,10 +52,8 @@ function TaskForm() {
           <label htmlFor="course" className="col-sm-2 col-form-label">Materia</label>
           <div className="col-sm-10">
             <select name="course" className="form-select" onChange={handleChange}>
-              <option selected>Elegir...</option>
-              <option>Espanol</option>
-              <option>Mates</option>
-              <option>Chanchito</option>
+              <option>...</option>
+              {`<option>${courses.length}</option>`}  
             </select>
           </div>
         </div>
