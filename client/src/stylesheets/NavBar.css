@@ -2,10 +2,24 @@
     width: 100%;
     height: 90px;
     display: flex;
-    justify-content: flex-end;
     position: fixed;
     z-index: 10;
     background-color: #111;
+}
+
+.nav-title {
+    width: 70vw;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    justify-content: start;
+    font-family: "FreeSans";
+    font-size: 30px;
+    font-weight: bolder;
+    color: #fff;
+    opacity: 0.7;
+    margin-left: 0.8vw;
 }
 
 .nav-links {
@@ -20,6 +34,7 @@
 }
 
 .nav-links li {
+    position: relative;
     margin: 0 0.8vw;
 }
 
@@ -38,8 +53,4 @@
     background-color: #333;
     padding: 10px;
     border-radius: 50px;
-}
-
-.nav-links li {
-    position: relative;
 }
