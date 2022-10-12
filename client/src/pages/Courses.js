@@ -5,13 +5,13 @@ import NavBar from '../components/NavBar';
 import '../stylesheets/Page.css';
 import '../stylesheets/Courses.css';
 
-import API from '../api/api';
+import { getCourses } from '../api/api';
 
 function Courses() {
   const [courses, setCourses] = React.useState([]);
 
   const fetchCourses = async () => {
-    const res = await API.getCourses();
+    const res = await getCourses();
     const { result } = res;
     console.log(result);
     setCourses(result);

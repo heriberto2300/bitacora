@@ -4,7 +4,7 @@ import ModalFactory from "../components/ModalFactory";
 
 import '../stylesheets/Login.css';
 import '../stylesheets/Page.css';
-import post from "../api/api";
+import { post } from "../api/api";
 import handleAuthForm from "../lib/FormHandler";
 
 function Login() {

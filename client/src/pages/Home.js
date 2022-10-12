@@ -5,7 +5,7 @@ import { BsFillPlusCircleFill as Add } from 'react-icons/bs';
 import '../stylesheets/Home.css';
 import '../stylesheets/Page.css'
 import ModalFactory from "../components/ModalFactory";
-import API from "../api/api";
+import { post } from "../api/api";
 
 function Home() {
   const [tasksList, setTasks] = React.useState([]);
@@ -14,7 +14,7 @@ function Home() {
   const fetchTasks = async () => {
     const data = {user: 'test',};
     const url = "http://192.168.100.11:8000/home"; 
-    const res = await API.post(url, data);
+    const res = await post(url, data);
     const { tasks, percentage } =  await res.json();
     console.log(tasks);
     setTasks(tasks);
