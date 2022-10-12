@@ -1,0 +1,39 @@
+.course-container {
+    width: 500px;
+    height: 230px;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    padding: 20px;
+    background: #658dd6;
+    border-radius: 30px;
+    color: #fff;
+    margin: 10px 15px 15px 20px;
+}
+
+.course-details {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.course-details h2, .course-container h3 {
+    opacity: 0.9;
+    font-family: "FreeSans", Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+}
+
+.course-details h2 {
+    letter-spacing: normal;
+    font-weight: bolder;
+    margin-bottom: 30px;
+}
+
+.icon {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-size: 200px;
+}
