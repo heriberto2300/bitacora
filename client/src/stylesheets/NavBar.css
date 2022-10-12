@@ -5,6 +5,7 @@
     position: fixed;
     z-index: 10;
     background-color: #111;
+    user-select: none;
 }
 
 .nav-title {
@@ -14,7 +15,7 @@
     justify-content: flex-start;
     align-items: center;
     justify-content: start;
-    font-family: "FreeSans";
+    font-family: "FreeSans", "Segoe UI Light", Arial;
     font-size: 30px;
     font-weight: bolder;
     color: #fff;
@@ -39,7 +40,7 @@
 }
 
 .nav-links li a {
-    font-family: "FreeSans";
+    font-family: "FreeSans", "Segoe UI Light", Arial;
     font-size: larger;
     font-weight: normal;
     color: #fff;

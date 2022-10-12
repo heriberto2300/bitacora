@@ -19,7 +19,7 @@
 
 .percentage-container > h2 {
     text-align: center;
-    font-family: 'Jetbrains mono', Arial, Helvetica, sans-serif;
+    font-family: 'Jetbrains mono', "Segoe UI Light", Arial;
 }
 
 .percentage-container .number-percentage {
