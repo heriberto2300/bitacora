@@ -1,6 +1,6 @@
 import React from "react";
 import handleAuthForm from '../lib/FormHandler';
-import API from '../api/api';
+import { post } from '../api/api';
 
 function FormRegister() {
   const [data, setData] = React.useState({
@@ -11,7 +11,7 @@ function FormRegister() {
   const postUser = async (e) => {
     e.preventDefault();
     const url = "http://192.168.100.11:8000/register";
-    await API.post(url, data);
+    await post(url, data);
   }
 
   const handleChange = (e) => {
